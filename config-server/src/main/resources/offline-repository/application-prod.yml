@@ -1,0 +1,36 @@
+---
+# Items that apply to ALL profiles:
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    url: jdbc:postgresql://postgresdb:5432/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+eureka:
+  client:
+    serviceUrl: 
+      defaultZone: http://eureka-server:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+feign:
+  accessTokenUri: http://api-gateway:8090/auth-server/oauth/token
+  clientId: clientId
+  clientSecret: secret
+
+security:
+  oauth2:
+    resource:
+      jwk:
+        key-set-uri: http://api-gateway:8090/auth-server/.well-known/jwks.json

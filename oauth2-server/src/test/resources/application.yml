@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active:
+    - test
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    data-username: sa
+    password: 
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  flyway:
+    enabled: false
+    
+security:
+  jwt:
+    kid: jwt
+    key-store: classpath:jwt.jks
+    key-store-password: password
+    key-pair-alias: jwt
+    key-pair-password: password
+  resource-id: auth

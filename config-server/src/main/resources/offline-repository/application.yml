@@ -1,0 +1,22 @@
+---
+spring:
+  profiles:
+    active: dev
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    open-in-view: false
+  jackson:
+    date-format: dd/MM/yyyy HH:mm
+    time-zone: America/Sao_Paulo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  
+  endpoint:
+    health:
+      show-details: ALWAYS

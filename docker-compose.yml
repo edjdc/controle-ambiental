@@ -1,0 +1,95 @@
+version: '3.7'
+
+services:
+
+  postgresdb:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+
+  config-server:
+    build: 
+      context: ./config-server
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod,native
+    depends_on:
+      - 'postgresdb'
+
+  eureka-server:
+    build: 
+      context: ./eureka-server
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - '8761:8761'
+    depends_on:
+      - 'config-server'
+
+  oauth2-server:
+    build: 
+      context: ./oauth2-server
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_CLOUD_CONFIG_URI=http://config-server:9090/
+    depends_on:
+      - 'config-server'
+      - 'eureka-server'
+
+  api-gateway:
+    build: 
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_CLOUD_CONFIG_URI=http://config-server:9090/
+    ports:
+      - '8080:8090'
+    depends_on:
+      - 'config-server'
+      - 'eureka-server'
+      - 'oauth2-server'
+
+  ativos-service:
+    build: 
+      context: ./ativos-service
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_CLOUD_CONFIG_URI=http://config-server:9090/
+    depends_on:
+      - 'oauth2-server'
+
+  monitoramento-service:
+    build: 
+      context: ./monitoramento-service
+      dockerfile: Dockerfile
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_CLOUD_CONFIG_URI=http://config-server:9090/
+    depends_on:
+      - 'config-server'
+      - 'eureka-server'
+      - 'oauth2-server'
+
+  seguranca-service:
+    build: 
+      context: ./seguranca-service
+      dockerfile: Dockerfile
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_CLOUD_CONFIG_URI=http://config-server:9090/
+    depends_on:
+      - 'config-server'
+      - 'eureka-server'
+      - 'oauth2-server'
+      - 'monitoramento-service'

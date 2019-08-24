@@ -1,0 +1,10 @@
+com/github/edjdc/oauthserver/config/security/jwt/JwtCustomHeadersAccessTokenConverter.class
+com/github/edjdc/oauthserver/config/WebConfig.class
+com/github/edjdc/oauthserver/OauthServerApplication.class
+com/github/edjdc/oauthserver/jwkset/controller/JwkSetRestController.class
+com/github/edjdc/oauthserver/config/security/ResourceServerConfiguration.class
+com/github/edjdc/oauthserver/config/security/SecurityProperties.class
+com/github/edjdc/oauthserver/config/security/WebSecurityConfiguration.class
+com/github/edjdc/oauthserver/config/security/AuthorizationServerConfiguration.class
+com/github/edjdc/oauthserver/user/controller/UserController.class
+com/github/edjdc/oauthserver/config/security/SecurityProperties$JwtProperties.class

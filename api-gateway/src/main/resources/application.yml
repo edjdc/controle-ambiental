@@ -1,0 +1,7 @@
+---
+zuul:
+  sensitiveHeaders: Cookie,Set-Cookie
+      
+server:
+  port: 8090
+      

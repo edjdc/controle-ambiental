@@ -1,0 +1,12 @@
+security:
+  jwt:
+    kid: jwt
+    key-store: classpath:jwt.jks
+    key-store-password: password
+    key-pair-alias: jwt
+    key-pair-password: password
+  resource-id: auth
+  
+server:
+  port: 9191
+  

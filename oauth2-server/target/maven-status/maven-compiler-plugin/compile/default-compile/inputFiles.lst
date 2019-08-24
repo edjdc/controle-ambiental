@@ -1,0 +1,9 @@
+/media/edjdc/B042A36D42A3374E/Arquitetura/13. TCC - Arquitetura de Software Distribuído/controle-ambiental/api/oauth2-server/src/main/java/com/github/edjdc/oauthserver/user/controller/UserController.java
+/media/edjdc/B042A36D42A3374E/Arquitetura/13. TCC - Arquitetura de Software Distribuído/controle-ambiental/api/oauth2-server/src/main/java/com/github/edjdc/oauthserver/config/security/SecurityProperties.java
+/media/edjdc/B042A36D42A3374E/Arquitetura/13. TCC - Arquitetura de Software Distribuído/controle-ambiental/api/oauth2-server/src/main/java/com/github/edjdc/oauthserver/config/WebConfig.java
+/media/edjdc/B042A36D42A3374E/Arquitetura/13. TCC - Arquitetura de Software Distribuído/controle-ambiental/api/oauth2-server/src/main/java/com/github/edjdc/oauthserver/config/security/AuthorizationServerConfiguration.java
+/media/edjdc/B042A36D42A3374E/Arquitetura/13. TCC - Arquitetura de Software Distribuído/controle-ambiental/api/oauth2-server/src/main/java/com/github/edjdc/oauthserver/config/security/ResourceServerConfiguration.java
+/media/edjdc/B042A36D42A3374E/Arquitetura/13. TCC - Arquitetura de Software Distribuído/controle-ambiental/api/oauth2-server/src/main/java/com/github/edjdc/oauthserver/config/security/WebSecurityConfiguration.java
+/media/edjdc/B042A36D42A3374E/Arquitetura/13. TCC - Arquitetura de Software Distribuído/controle-ambiental/api/oauth2-server/src/main/java/com/github/edjdc/oauthserver/config/security/jwt/JwtCustomHeadersAccessTokenConverter.java
+/media/edjdc/B042A36D42A3374E/Arquitetura/13. TCC - Arquitetura de Software Distribuído/controle-ambiental/api/oauth2-server/src/main/java/com/github/edjdc/oauthserver/jwkset/controller/JwkSetRestController.java
+/media/edjdc/B042A36D42A3374E/Arquitetura/13. TCC - Arquitetura de Software Distribuído/controle-ambiental/api/oauth2-server/src/main/java/com/github/edjdc/oauthserver/OauthServerApplication.java

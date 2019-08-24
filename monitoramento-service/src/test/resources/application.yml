@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active:
+    - test
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    data-username: sa
+    password: 
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    
+security:
+  jwt:
+    public-key: classpath:public.txt
+  resource-id: monitoramento-service
