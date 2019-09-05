@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.github.edjdc.seguranca.config.FeignConfig;
 import com.github.edjdc.seguranca.model.dto.RegistroBarragemDTO;
 
-@FeignClient(name = "monitoramento-service", fallback = RegistroBarragemClientFallback.class, configuration = FeignConfig.class)
+@FeignClient(name = "monitoramento-service", fallbackFactory = RegistroBarragemClientFallbackFactory.class, configuration = FeignConfig.class)
 public interface RegistroBarragemClient {
 
-	 @RequestMapping(method = RequestMethod.GET, value = "/v1/barragem-registros")
-	 List<RegistroBarragemDTO> findAll();
+	@RequestMapping(method = RequestMethod.GET, value = "/v1/barragem-registros")
+	List<RegistroBarragemDTO> findAll();
 	 
 }
 

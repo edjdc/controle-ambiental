@@ -9,8 +9,8 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
-      - '5432:5432'
-
+      - '5432:5432'  
+  
   config-server:
     build: 
       context: ./config-server
@@ -52,7 +52,7 @@ services:
       - SPRING_PROFILES_ACTIVE=prod
       - SPRING_CLOUD_CONFIG_URI=http://config-server:9090/
     ports:
-      - '8080:8090'
+      - '8080:9098'
     depends_on:
       - 'config-server'
       - 'eureka-server'

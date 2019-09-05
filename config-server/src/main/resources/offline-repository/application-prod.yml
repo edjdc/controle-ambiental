@@ -12,6 +12,8 @@ spring:
 
 eureka:
   client:
+    healthcheck:
+      enabled: true
     serviceUrl: 
       defaultZone: http://eureka-server:8761/eureka/
 
@@ -25,7 +27,7 @@ management:
       show-details: ALWAYS
 
 feign:
-  accessTokenUri: http://api-gateway:8090/auth-server/oauth/token
+  accessTokenUri: http://api-gateway:9098/auth-server/oauth/token
   clientId: clientId
   clientSecret: secret
 
@@ -33,4 +35,4 @@ security:
   oauth2:
     resource:
       jwk:
-        key-set-uri: http://api-gateway:8090/auth-server/.well-known/jwks.json
+        key-set-uri: http://api-gateway:9098/auth-server/.well-known/jwks.json
