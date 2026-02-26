@@ -5,13 +5,10 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 
-import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-@ApiModel("Page")
 @NoArgsConstructor @AllArgsConstructor @Builder
 @Data
 public class PageDTO<T extends Serializable> implements Serializable {

@@ -3,13 +3,10 @@ package com.github.edjdc.seguranca.model.dto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-@ApiModel("RegistroBarragem")
 @Builder
 @NoArgsConstructor @AllArgsConstructor
 @Data
