@@ -3,13 +3,10 @@ package com.github.edjdc.ativos.model.dto;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-@ApiModel("Ativo")
 @Builder
 @NoArgsConstructor @AllArgsConstructor
 @Data

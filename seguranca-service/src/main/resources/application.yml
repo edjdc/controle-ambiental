@@ -1,12 +1,11 @@
 server:
   port: 0
 
-feign:
-  hystrix:
-    enabled: true
-
-security:
-  oauth2:
-    resource:
-      id: seguranca-service
-
+resilience4j:
+  circuitbreaker:
+    instances:
+      monitoramentoService:
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s

@@ -1,7 +1,12 @@
----
-zuul:
-  sensitiveHeaders: Cookie,Set-Cookie
-      
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+
 server:
   port: 9098
-      

@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+jobs:
+  build-quality-security:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build + Unit Tests + Lint
+        run: mvn -B -ntp clean verify
+
+      - name: Enforce Unmaintained Dependency Policy
+        run: |
+          chmod +x .github/scripts/check-unmaintained-deps.sh
+          .github/scripts/check-unmaintained-deps.sh
+
+      - name: Generate License Inventory
+        run: mvn -B -ntp org.codehaus.mojo:license-maven-plugin:2.5.0:aggregate-third-party-report
+
+      - name: Enforce License Policy
+        run: |
+          REPORT="target/generated-sources/license/THIRD-PARTY.txt"
+          if [ ! -f "$REPORT" ]; then
+            echo "License report not found: $REPORT"
+            exit 1
+          fi
+
+          if grep -E "GNU General Public License|AGPL|GPL" "$REPORT"; then
+            echo "Forbidden license detected (GPL/AGPL)."
+            exit 1
+          fi
+
+      - name: Vulnerability Scan (High/Critical)
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          vuln-type: library
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          format: table
+          exit-code: '1'
+
+      - name: Upload SBOM
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: |
+            target/bom.json
+            target/bom.xml
+          if-no-files-found: error

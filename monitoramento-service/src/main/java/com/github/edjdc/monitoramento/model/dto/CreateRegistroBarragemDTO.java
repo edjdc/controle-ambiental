@@ -3,15 +3,12 @@ package com.github.edjdc.monitoramento.model.dto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
-import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-@ApiModel("CreateRegistroBarragem")
 @Builder
 @NoArgsConstructor @AllArgsConstructor
 @Data

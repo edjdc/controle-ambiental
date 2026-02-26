@@ -5,8 +5,6 @@ security:
     key-store-password: password
     key-pair-alias: jwt
     key-pair-password: password
-  resource-id: auth
-  
+
 server:
   port: 9191
-  
